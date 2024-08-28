@@ -29,7 +29,7 @@ h2,p{
 h2{
     font-size: 2em;
 }
-div::after{
+div::after,div::before{
     content: '';
     position: absolute;
     height: 100%;
@@ -38,4 +38,8 @@ div::after{
     background-image: conic-gradient(red,violet,indigo,blue,green,yellow,orange,red);
     z-index: -1;
     padding: 3px;
+}
+div::before{
+    filter: blur(10px);
+    opacity: 0.5;
 }
