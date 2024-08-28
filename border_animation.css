@@ -3,6 +3,11 @@
     padding: 0;
     box-sizing: border-box;
 }
+@property --angle{
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
 body{
     width: 100%;
     height: 100vh;
@@ -35,11 +40,16 @@ div::after,div::before{
     height: 100%;
     width: 100%;
     border-radius: 10px;
-    background-image: conic-gradient(red,violet,indigo,blue,green,yellow,orange,red);
+    background-image: conic-gradient(from var(--angle),transparent , blue,transparent,red,transparent);
+    animation: 3s spin linear infinite;
     z-index: -1;
     padding: 3px;
 }
-div::before{
-    filter: blur(10px);
-    opacity: 0.5;
+@keyframes spin{
+    from{
+        --angle: 0deg;
+    }
+    to{
+        --angle: 360deg;
+    }
 }
